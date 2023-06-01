@@ -1,0 +1,88 @@
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  height: 500px;
+  width: 750px;
+  border: 1px solid rgba(0, 0, 0, 0.032);
+  background-color: rgba(215, 215, 189, 0.258);
+
+  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.052),
+    1px 0px 0px 0px rgba(0, 0, 0, 0.052), 1px 2px 0px 0px rgba(0, 0, 0, 0.052),
+    2px 1px 0px 0px rgba(0, 0, 0, 0.052), 2px 3px 0px 0px rgba(0, 0, 0, 0.052),
+    3px 2px 0px 0px rgba(0, 0, 0, 0.052), 3px 4px 0px 0px rgba(0, 0, 0, 0.052),
+    4px 3px 0px 0px rgba(0, 0, 0, 0.052), 4px 5px 0px 0px rgba(0, 0, 0, 0.052),
+    5px 4px 0px 0px rgba(0, 0, 0, 0.052), 5px 6px 0px 0px rgba(0, 0, 0, 0.052),
+    6px 5px 0px 0px rgba(0, 0, 0, 0.052), 6px 7px 0px 0px rgba(0, 0, 0, 0.052),
+    7px 6px 0px 0px rgba(0, 0, 0, 0.052), 7px 8px 0px 0px rgba(0, 0, 0, 0.052),
+    8px 7px 0px 0px rgba(0, 0, 0, 0.052);
+}
+
+.container h1 {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+.cubesContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.listWrapper {
+  border-radius: 4px;
+  padding: 0 15px;
+  position: relative;
+  width: 200px;
+}
+
+.listWrapper::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 43%;
+
+  width: 350px;
+  rotate: 90deg;
+  border: 1px dashed rgba(50, 46, 56, 0.357);
+}
+
+.listWrapper h2 {
+  text-align: center;
+}
+
+.listWrapper p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.listWrapper ul {
+  margin-top: 28px;
+  height: 300px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.listWrapper ul::-webkit-scrollbar-track {
+  background: rgba(50, 46, 56, 0.088);
+}
+
+.listWrapper ul::-webkit-scrollbar {
+  width: 5px;
+}
+
+.listWrapper ul::-webkit-scrollbar-thumb {
+  background: rgba(50, 46, 56, 0.357);
+}
+
+.listWrapper ol {
+  padding: 0;
+}
+
+.listWrapper ol li {
+  font-size: 16px;
+}

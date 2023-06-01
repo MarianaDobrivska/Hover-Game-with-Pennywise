@@ -1,0 +1,48 @@
+.gridWrapper {
+  width: 300px;
+}
+
+.gridContainer5 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(60px, 1fr));
+  max-width: 300px;
+  max-height: 300px;
+  width: fit-content;
+  height: fit-content;
+}
+
+.gridContainer10 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(30px, 1fr));
+  max-width: 300px;
+  max-height: 300px;
+  width: fit-content;
+  height: fit-content;
+}
+.gridContainer15 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(20px, 1fr));
+  max-width: 300px;
+  max-height: 300px;
+  width: fit-content;
+  height: fit-content;
+}
+
+.cube {
+  background-color: #ccc;
+  border: 1px solid #888;
+}
+
+.active {
+  background-color: #7e3d75;
+  border: 1px solid #888;
+}
+
+p {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 0;
+}

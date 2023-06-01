@@ -1,0 +1,29 @@
+.selectContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.selectContainer select {
+  padding: 10px;
+  font-weight: 500;
+  border-radius: 4px;
+  border: 1px solid rgba(62, 53, 53, 0.204);
+  outline: none;
+}
+
+.selectContainer button {
+  background-color: rgba(134, 93, 192, 0.524);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 0 15px;
+  border-radius: 4px;
+  border: 1px solid rgba(62, 53, 53, 0.204);
+  outline: none;
+  transition: all 200ms linear;
+}
+
+.selectContainer button:hover {
+  color: white;
+  border: 1px solid rgb(221, 219, 219);
+}
