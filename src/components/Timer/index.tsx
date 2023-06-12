@@ -20,6 +20,7 @@ const Timer = ({ duration, onTimeout }: TimerProps) => {
 
       return () => clearInterval(timerId);
     }
+    // eslint-disable-next-line
   }, [remainingTime]);
 
   return (
