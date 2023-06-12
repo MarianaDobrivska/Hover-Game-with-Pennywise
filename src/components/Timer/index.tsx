@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import style from "./style.module.css";
+
 type TimerProps = {
   duration: number;
   onTimeout: () => void;
@@ -9,7 +11,7 @@ const Timer = ({ duration, onTimeout }: TimerProps) => {
   const [remainingTime, setRemainingTime] = useState(duration);
 
   useEffect(() => {
-    if (remainingTime <= 0) {
+    if (remainingTime < 0) {
       onTimeout();
     } else {
       const timerId = setInterval(() => {
@@ -18,16 +20,17 @@ const Timer = ({ duration, onTimeout }: TimerProps) => {
 
       return () => clearInterval(timerId);
     }
-  }, [remainingTime, onTimeout]);
+  }, [remainingTime]);
 
   return (
-    <div className="timer-container">
-      <div className="timer-digits">
+    <div className={style.timerContainer}>
+      <div>
         {remainingTime.toLocaleString("en-US", {
           minimumIntegerDigits: 2,
           useGrouping: false,
         })}
       </div>
+      <p>sec</p>
     </div>
   );
 };

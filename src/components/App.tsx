@@ -2,6 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 
 import CubesGrid from "./CubesGrid";
 import SelectPanel from "./SelectPanel";
+import Timer from "./Timer";
+
+import happyClown from "../assets/happyclown.png";
+import angryCown from "../assets/angryclown.png";
+import youWin from "../assets/youwin.png";
+import youLose from "../assets/youlose.png";
 
 import style from "./style.module.css";
 
@@ -13,13 +19,16 @@ const options = [
 
 function App() {
   const [option, setOption] = useState(0);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isGameStarted, setIsGameStarted] = useState(false);
   const [cubes, setCubes] = useState([]);
+  const [gameResult, setGameResult] = useState("");
   const listRef = useRef(null);
+  const victory = gameResult === "win";
+  const fail = gameResult === "fail";
 
   useEffect(() => {
-    if (!isOpen) setCubes([]);
-  }, [isOpen]);
+    if (!isGameStarted) setCubes([]);
+  }, [isGameStarted]);
 
   useEffect(() => {
     if (listRef.current) {
@@ -29,8 +38,24 @@ function App() {
     }
   }, [cubes.length]);
 
+  const endGame = () => {
+    setIsGameStarted(false);
+    setCubes([]);
+    setOption(0);
+    if (cubes.length === Math.pow(option, 2)) {
+      setGameResult("win");
+    } else {
+      setGameResult("fail");
+    }
+
+    setTimeout(() => {
+      setGameResult("");
+    }, 10000);
+  };
+
   return (
     <>
+      {isGameStarted && <Timer duration={30} onTimeout={endGame} />}
       <div className={style.container}>
         <h1>let the hover game begin</h1>
         <div className={style.cubesContainer}>
@@ -38,16 +63,19 @@ function App() {
             <SelectPanel
               options={options}
               setOption={setOption}
-              setIsOpen={setIsOpen}
+              setIsGameStarted={setIsGameStarted}
+              isGameStarted={isGameStarted}
+              endGame={endGame}
             />
             <CubesGrid
               size={option}
               setCubes={setCubes}
               cubes={cubes}
-              isOpen={isOpen}
+              isOpen={isGameStarted}
+              gameResult={gameResult}
             />
           </div>
-          {isOpen ? (
+          {isGameStarted ? (
             <div className={style.listWrapper}>
               <h2>hovered cubes</h2>
               <ul ref={listRef}>
@@ -68,12 +96,24 @@ function App() {
                   start hovering over the cubes until all of them change color
                 </li>
                 <li>if time is up and unpainted cells remain - you lose</li>
-                <li>Go back to step 1</li>
+                <li>go back to step 1</li>
               </ol>
             </div>
           )}
         </div>
       </div>
+      {victory && (
+        <div className={style.victoryImageWrapper}>
+          <img src={happyClown} alt="happy clown" />
+          <img src={youWin} alt="you win" />
+        </div>
+      )}
+      {fail && (
+        <div className={style.failImageWrapper}>
+          <img src={angryCown} alt="angry clown" />
+          <img src={youLose} alt="you lose" />
+        </div>
+      )}
     </>
   );
 }

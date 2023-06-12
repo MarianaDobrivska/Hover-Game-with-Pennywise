@@ -1,0 +1,39 @@
+.timerContainer {
+  margin-top: 15px;
+  margin-left: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100px;
+  width: 100px;
+  border: 1px dashed rgba(50, 46, 56, 0.357);
+  border-radius: 50%;
+}
+
+.timerContainer div {
+  font-size: 35px;
+  font-weight: bold;
+  color: #333;
+  animation: timerAnimation 1s linear infinite;
+}
+
+.timerContainer p {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  padding: 0;
+}
+
+@keyframes timerAnimation {
+  90% {
+    opacity: 0.7;
+  }
+  98% {
+    opacity: 1;
+    scale: 1.1;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
